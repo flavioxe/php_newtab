@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/style/home.css" rel="stylesheet">
+        <!-- Import Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- Title -->
+    <title>PHP Project - Clientes</title>
+    <link rel="icon" type="image/x-icon" href="/assets/pablo-918.png">
+    
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <div class="container box-content">
+        <header class="container pt-4 pb-5 d-flex justify-content-around">
+            <a href="/index.html" class="title-home text-decoration-none">PHP Project</a>
+            <nav>
+                <a href="#" class="text-decoration-none">Clientes </a>|
+                <a href="#" class="text-decoration-none">Pedido </a>|
+                <a href="#" class="text-decoration-none">Produtos </a>|
+                <a href="#" class="text-decoration-none">Migrações</a>
+            </nav>
+        </header>
+        <div class="container row d-flex mt-5 mb-5">
+            <div class="col-6">
+                <h3 class="mb-3">Cadastrar | Editar</h3>
+                <form method="post" action="">
+                    <div class="form-group mt-2">
+                      <label for="name">Nome</label>
+                      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="nome completo">
+                    </div>
+                    <div class="form-group mt-2">
+                      <label for="email">E-mail</label>
+                      <input type="email" class="form-control" id="email" placeholder="email@exemple.com">
+                    </div>
+                    <div class="form-group mt-2">
+                      <label for="cpf">CPF</label>
+                      <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4 col-12">Enviar</button>
+                  </form>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+
+
+    <!-- Import Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

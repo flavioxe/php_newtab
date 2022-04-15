@@ -1,0 +1,23 @@
+.img-thumb {
+    position: absolute;
+    width: 150px;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img-products {
+    width: 65px;
+}
+
+.img-requests {
+    width: 120px;
+}
+
+.color-title {
+    color: #6d8f84;
+}
+
+.card-menu {
+    padding: 60px 30px;
+}
