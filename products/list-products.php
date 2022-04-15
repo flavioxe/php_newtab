@@ -1,3 +1,7 @@
+<?php
+require_once('../backend/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +34,7 @@
 
     <div class="container row d-flex my-5">
 
-      <div class="container text-center col-6 card-menu">
+      <div class="container text-center col-10 card-menu">
         <div class="container-img">
           <img src="/assets/pablo-648.png" alt="" class="img-thumb img-products">
         </div>
@@ -41,30 +45,39 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Código de Barras</th>
+              <th scope="col">Produto</th>
               <th scope="col">Valor (Unidade)</th>
+              <th scope="col">Código de Barras</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <?php
+            $connect = $db->query("select * from products order by id");
+            if (!$connect) {
+              // mensagem de erro ao tentar buscar os registros na tabela
+              echo "<tr><td>Error na busca</td></tr>";
+            } else {
+              // mensagem quando não houver registros na tabela
+              if ($connect->num_rows == 0) {
+                echo "<tr><td>Nenhum registro encontrado</td></tr>";
+              } else {
+                while ($registro = $connect->fetch_object()) {
+                  echo "
+                              <tr>
+                                  <td>$registro->nome_produto</td>
+                                  <td>$registro->valor_unitario</td>
+                                  <td>$registro->cod_barras</td>
+                                  <td>
+                                      <a>
+                                        
+                                      </a>
+                                  </td>
+                              </tr>";
+                }
+              }
+            }
+            ?>
           </tbody>
         </table>
         <div class="d-flex justify-content-between mt-3">

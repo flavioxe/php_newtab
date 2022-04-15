@@ -1,3 +1,7 @@
+<?php
+require_once('../backend/connection.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,13 +34,15 @@
 
     <div class="container row d-flex my-5">
 
-      <div class="container text-center col-6 card-menu">
+      <div class="container text-center col-10 card-menu">
         <div class="container-img">
           <img src="/assets/pablo-214.png" alt="" class="img-thumb">
         </div>
 
         <h2 class="color-title mb-4">Clientes</h2>
         <h6 class="color-title">Listar</h6>
+
+
 
         <table class="table">
           <thead>
@@ -48,23 +54,33 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            <?php
+            $connect = $db->query("select * from clients order by nome_cliente");
+            if (!$connect) {
+              // mensagem de erro ao tentar buscar os registros na tabela
+              echo "<tr><td>Error na busca</td></tr>";
+            } else {
+              // mensagem quando não houver registros na tabela
+              if ($connect->num_rows == 0) {
+                echo "<tr><td>Nenhum registro encontrado</td></tr>";
+              } else {
+                // loop para printar todos registros dentro da tabela clients
+                while ($registro = $connect->fetch_object()) {
+                  echo "
+                              <tr>
+                                  <td>$registro->nome_cliente</td>
+                                  <td>$registro->cpf</td>
+                                  <td>$registro->email</td>
+                                  <td>
+                                      <a>
+                                        
+                                      </a>
+                                  </td>
+                              </tr>";
+                }
+              }
+            }
+            ?>
           </tbody>
         </table>
         <div class="d-flex justify-content-between mt-3">
